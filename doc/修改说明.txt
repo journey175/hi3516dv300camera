@@ -1,0 +1,53 @@
+【2.8.1】
+1. libailib.so改为动态加载， nsd运行的时候固定在/mnt/mtd/nsd/ai/文件夹下面查找是否存在libailib.so， 如果存在， 则加载
+2. libailib.so里面增加接口int AI_GetCoreVersion()， 需要固定返回CORE_VERSION
+   nsd启动的时候会判断AI的版本， 版本和nsd不同的话则不加载
+3. callback注册函数已提至中间接口层，不再需要extern的方式调用。详见ai_callback例子
+4. libailib.so中所有的c方法必须用extern "C"包含， 详见sample
+5. 由于libailib.so改为动态加载， 所以用到的其他库必须链接进该动态库， 否则在运行时会出现未定义符号
+6. 中间接口增加升级接口
+
+【2.8.2】
+1. YUVAnalyzeResult 增加normalizationX 和 normalizationY 用来表示返回坐标位置的归一化系数
+   之前返回的结果集内框的坐标范围是0-100. 现在可以自行设置归一化系数. 
+   比较方便的做法是， 如果分析的YUV分辨率为1080P， 那么可以设置normalizationX为1920， normalizationY为1080。
+
+【2.8.3】
+1. 增加中间接口
+	IF_GetPlatformTypeList    获取支持的平台列表
+	IF_SendLocalMsg           用于libailib.so向其他进程发送消息
+	IF_AddLocalMsgCallback    注册回调用于接收其他进程向nsd发送消息
+	IF_RemoveLocalMsgCallback 移除回调
+2. NSD_VOUT_CFG_S结构体增加Alpha设置以及Colorkey设置，用于初始化Framebuffer，修改配置文件后重启生效
+3. 增加各平台linux端SDK的动态库，以便做多进程开发
+   头文件：nsdnetinterface.h   库：libnsdnetsdk.so
+
+该版本HVP可兼容2.8.2
+
+【2.8.4】
+1. 修改NSD_PLATFORM_CUSTOMER_S结构体的大小
+
+该版本libailib可兼容2.8.3， libplatform_customer不兼容
+
+【2.8.5】
+1. NSD_AI_S结构体增加u8CacheNumberForVout字段， 用来表示VO的数据缓存数量， 范围2-8. 数值越大画框越准， 但是延迟会增加， MMZ内存占用也会增加
+   例如：
+       	NSD_AI_S ai_cfg;
+	
+	ai_cfg.u16AiImageWidth      = 1920
+	ai_cfg.u16AiImageHeight     = 1080;
+	
+	ai_cfg.u8PixelFormat        = 3;
+    
+	ai_cfg.u8CacheNumber        = 2;
+    //实时流缓存数量
+	ai_cfg.u8CacheNumberForVout = 8;
+    //Vo缓存数量	
+	IF_SetParam(NSDCFG_AI,&ai_cfg,0,0);
+2. 接口增加IF_SendModuleMsg和IF_SetModuleMsgCallback 用来模块间进程通讯
+
+该版本可兼容2.8.4
+
+【2.8.5】 20190719
+1. 更新头文件， 增加接口
+2. 文档改为中文
