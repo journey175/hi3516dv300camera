@@ -1,0 +1,38 @@
+
+#****************************************************************************
+#
+# Makefile
+# 
+# This is a GNU make (gmake) makefile
+# Author:Dive
+#****************************************************************************
+.PHONY:all clean distclean main const
+
+SUBDIRS :=  src/modules/ai_callback
+
+SUBDIRS :=$(wildcard $(SUBDIRS))
+
+include env.mk
+all:
+	@echo complie nsd module...
+	@for dir in $(SUBDIRS); do $(MAKE) -C $$dir $@ ||exit 1; done; 
+#	@echo complie nsd program...
+#	${RM} src/main/obj/${arm}/nsd
+#	$(MAKE) -C src/main $@
+#	@echo complie const program...
+#	$(RM) src/auxiliary/const/obj/${arm}/ldefault
+#	$(MAKE) -C src/auxiliary/const $@
+#	$(RM) src/auxiliary/geth/obj/${arm}/geth
+#	$(MAKE) -C src/auxiliary/geth $@
+#	$(RM) src/auxiliary/prensd/obj/${arm}/prensd
+#	$(MAKE) -C src/auxiliary/prensd $@
+#	${RM} src/auxiliary/ive/obj/${arm}/ive
+#	$(MAKE) -C src/auxiliary/ive $@
+
+clean:
+	@echo rm in $(SUBDIRS) of obj
+	@for dir in $(SUBDIRS); do $(RM) -rf $$dir/obj/${arm} $$dir/*.a $$dir/*.so; done;
+	${RM} src/main/obj/${arm} -rf
+	${RM} src/auxiliary/const/obj/${arm} -rf
+	${RM} src/auxiliary/geth/obj/${arm} -rf
+	${RM} src/auxiliary/prensd/obj/${arm} -rf
