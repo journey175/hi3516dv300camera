@@ -3,32 +3,79 @@
 #include <unistd.h>
 #include <stdio.h>
 
-#define NORMALIZATION_X 1920
-#define NORMALIZATION_Y 1080
+
+#include "sample_comm_ive.h"
+#include "sample_nnie.h"
+#include "sample_comm_nnie.h"
+
+#define NORMALIZATION_X 300
+#define NORMALIZATION_Y 300
+
+static IVE_IMAGE_S stImg[1] = {0};
+static SAMPLE_SVP_NNIE_RECT_ARRAY_S rect_result_array = {0};
+static HI_FLOAT af32ScoreThr[SAMPLE_SVP_NNIE_MAX_CLASS_NUM] = {0};
+
+static void convert_type_frame_to_image(VIDEO_FRAME_INFO_S * src, IVE_IMAGE_S * dest)
+{
+	IVE_IMAGE_S * tmp = (IVE_IMAGE_S * )dest;
+	
+	tmp->u32Width   = src->stVFrame.u32Width;
+	tmp->u32Height  = src->stVFrame.u32Height;
+	tmp->enType = IVE_IMAGE_TYPE_YUV420SP;
+	
+	for(int i=0; i<3; i++){
+		tmp->au64PhyAddr[i] = src->stVFrame.u64PhyAddr[i];
+		tmp->au64VirAddr[i] = src->stVFrame.u64VirAddr[i];
+		tmp->au32Stride[i]  = src->stVFrame.u32Stride[i];
+	}
+}
+
+static HI_S32 convert_check_result(SAMPLE_SVP_NNIE_RECT_ARRAY_S * pstRect, YUVAnalyzeResult *result)
+{
+
+	if (0 == pstRect->u32TotalNum)
+    {
+        return -1;
+    }
+    result->resultNumber = pstRect->u32TotalNum;
+	 for (HI_U32 i = 0, k = 0; i < pstRect->u32ClsNum; ++i)
+	 {
+		  	for (HI_U32 j = 0; j < pstRect->au32RoiNum[i]; ++j)
+			{
+
+				result->faceResult[k].resultPosition.u16X = pstRect->astRect[i][j].astPoint[0].s32X; 
+				result->faceResult[k].resultPosition.u16Y = pstRect->astRect[i][j].astPoint[0].s32Y;
+
+				result->faceResult[k].resultPosition.u16Width = \
+				pstRect->astRect[i][j].astPoint[2].s32X - pstRect->astRect[i][j].astPoint[0].s32X; 
+
+				result->faceResult[k].resultPosition.u16Height = \
+				pstRect->astRect[i][j].astPoint[2].s32Y - pstRect->astRect[i][j].astPoint[0].s32Y; 
+
+				result->faceResult[k].u32Color = 0x0000ff00; //green
+				result->faceResult[k].u8NeedPrintOsd = 1; 
+				strcpy(result->faceResult[0].szInfo, "face");
+				++k;
+			}
+	 }
+
+	 return HI_SUCCESS;
+
+}
 
 static void *TheThread(void *param)
 {
-	static int s_cnt=0;
-	FILE *s_yuv_file_handle=NULL;
-
+	HI_S32 s32Ret = HI_SUCCESS;
 	CAiLib::GetInstance().m_bThreadRunning = true;
+	IVE_HANDLE IveHandle;
+	IVE_CSC_CTRL_S stCscCtrl = {IVE_CSC_MODE_PIC_BT601_YUV2RGB};
+	HI_FLOAT f32PrintResultThresh = 0.8f;
+	IVE_IMAGE_S stSrcImage;
+
+	af32ScoreThr[0] = af32ScoreThr[1] = f32PrintResultThresh;
+
 	while (!CAiLib::GetInstance().m_stop_flag)
 	{
-		if(s_cnt==10)
-		{
-			//open yuv file, it's just a demo, don't write too much frames, it' s cause the flash full
-			//you can mount to virtual machine, and write yuv data to nfs filesystem
-			char name[128] = {0};
-			strcpy(name, "/mnt/nfs/sample.yuv");
-			s_yuv_file_handle=fopen(name, "wb");
-			if (s_yuv_file_handle == NULL)
-			{
-				printf("open file failed filename=%s \n", name);
-				break;
-			}
-			printf("open file success handle=%#x \n", s_yuv_file_handle);
-		}
-
 		AI_VIDEO_FRAME_S *llpVideoFrame=NULL;
 
 		//get yuv data
@@ -39,8 +86,6 @@ static void *TheThread(void *param)
 			continue;
 		}
 		
-		s_cnt++;
-
 		if(llpVideoFrame==NULL)
 		{
 			printf("yuv data error\n");
@@ -48,54 +93,41 @@ static void *TheThread(void *param)
 			continue;
 		}
 
-		int w=llpVideoFrame->nWidth;
-		int h=llpVideoFrame->nHeight;
-
-		printf("recv data width=%d  height=%d\n",w ,h);
-
-		//we only support yuv 4:2:0, so data size is equal to w*h*3/2
-		int nSize = w*h*3/2;
-
-		/*
-		if (llpVideoFrame->nPixelFormat < 3 )
-		llpVideoFrame->pYUV[0]:  y
-		llpVideoFrame->pYUV[1]:  u
-		llpVideoFrame->pYUV[2]:  v
-
-		if (llpVideoFrame->nPixelFormat >= 3 )
-		llpVideoFrame->pYUV[0]:  yuv
-		*/
-		if (s_yuv_file_handle)
-			fwrite(llpVideoFrame->pYUV[0],nSize,1, s_yuv_file_handle);
-		
-		//Assemble analyse result structure, 
+		//int w=llpVideoFrame->nWidth;
+		//int h=llpVideoFrame->nHeight;
+		//printf("recv data width=%d  height=%d\n",w ,h);
+		printf("IF_GetYUVData!\n");
+		convert_type_frame_to_image((VIDEO_FRAME_INFO_S *)llpVideoFrame->pInnerUse, &stSrcImage);
+		s32Ret=HI_MPI_IVE_CSC(&IveHandle, &stSrcImage,&stImg[0], &stCscCtrl,HI_TRUE);
+		if(HI_SUCCESS != s32Ret){
+			printf("HI_MPI_IVE_CSC fail,Error(%#x)\n",s32Ret);
+			CAiLib::GetInstance().IF_ReleaseYUVData(0,llpVideoFrame);
+			continue;
+		}
+		printf("HI_MPI_IVE_CSC ok!\n");
+		s32Ret = SAMPLE_SVP_NNIE_SSD_Check(&stImg[0],&rect_result_array,af32ScoreThr,NORMALIZATION_X,NORMALIZATION_Y,1920,1080);
+		if(HI_SUCCESS != s32Ret){
+			printf("SAMPLE_SVP_NNIE_SSD_Check fail\n");
+			CAiLib::GetInstance().IF_ReleaseYUVData(0,llpVideoFrame);
+			continue;
+		}
+		printf("SAMPLE_SVP_NNIE_SSD_Check ok!\n");
 		//nsd will draw rectangle and osd depend on the result 
 		///mnt/mtd/code/fixed/sys.def  externtype should be 0x10000(hardware ai) or 0x20000(software ai) or 0x40000(hardware ai with cache)
+		
 		YUVAnalyzeResult analyzeResult;
 		memset(&analyzeResult,0,sizeof(YUVAnalyzeResult));
-		
-		analyzeResult.faceResult[0].resultPosition.u16X = 500; //0-NORMALIZATION_X
-		analyzeResult.faceResult[0].resultPosition.u16Y = 280; //0-NORMALIZATION_Y
-		analyzeResult.faceResult[0].resultPosition.u16Width = 200; //0-NORMALIZATION_X
-		analyzeResult.faceResult[0].resultPosition.u16Height = 120; //0-NORMALIZATION_Y
-		analyzeResult.faceResult[0].u32Color = 0x00ff0000; //red
-		analyzeResult.faceResult[0].u8NeedPrintOsd = 0; //0£ºnot show osd, 1: show osd
-		strcpy(analyzeResult.faceResult[0].szInfo, "Test Osd 111");
-		
-		analyzeResult.faceResult[1].resultPosition.u16X = 1200; //0-NORMALIZATION_X
-		analyzeResult.faceResult[1].resultPosition.u16Y = 500; //0-NORMALIZATION_Y
-		analyzeResult.faceResult[1].resultPosition.u16Width = 200; //0-NORMALIZATION_X
-		analyzeResult.faceResult[1].resultPosition.u16Height = 200; //0-NORMALIZATION_Y
-		analyzeResult.faceResult[1].u32Color = 0x0000ff00; //green
-		analyzeResult.faceResult[1].u8NeedPrintOsd = 1;
-		strcpy(analyzeResult.faceResult[1].szInfo, "Test Osd 222");
-		
-		analyzeResult.resultNumber = 2;
+
 		analyzeResult.drawLineFlag = 1;
 		analyzeResult.analyzeType  = NSD_AI_FACE;
-		analyzeResult.normalizationX = NORMALIZATION_X;
-		analyzeResult.normalizationY = NORMALIZATION_Y;
-		
+		analyzeResult.normalizationX = 1920;
+		analyzeResult.normalizationY = 1080;
+		s32Ret = convert_check_result(&rect_result_array,&analyzeResult);
+		if(HI_SUCCESS != s32Ret){
+			CAiLib::GetInstance().IF_ReleaseYUVData(0,llpVideoFrame);
+			continue;
+		}
+		printf("convert_check_result ok!\n");
 		std::map<long, CALLBACK_FUNCTION_WITH_CH>::iterator it = CAiLib::GetInstance().m_callback_list.begin();
 		while (it != CAiLib::GetInstance().m_callback_list.end())
 		{
@@ -103,16 +135,7 @@ static void *TheThread(void *param)
 			++it;
 		}
 
-		//release yuv data
 		CAiLib::GetInstance().IF_ReleaseYUVData(0,llpVideoFrame);
-
-		if(s_yuv_file_handle)
-		{
-			//we write 100 frames as sample
-			fclose(s_yuv_file_handle);
-			s_yuv_file_handle=NULL;
-		}
-		usleep(40000);
 	}
 	
 	CAiLib::GetInstance().m_bThreadRunning = false;
@@ -138,11 +161,14 @@ CAiLib & CAiLib::GetInstance()
 	return s_ailib;
 }
 
+
 int	CAiLib::InitLib(M_INTERFACE * lpInterface)
 {
+	HI_CHAR *pcModelName = "/mnt/nfs/inst_ssd_face_detect.wk";
+	HI_S32 s32Ret;
 	if(lpInterface==NULL)
 		return NSDERR_FAIL;
-
+	
 	//it's necessary, copy the interfaces implement to this module
 	_Copy(lpInterface);
 	
@@ -150,28 +176,29 @@ int	CAiLib::InitLib(M_INTERFACE * lpInterface)
 
 	//change ai parameters
 	NSD_AI_S ai_cfg;
-	ai_cfg.u16AiImageWidth  = 640;
-	ai_cfg.u16AiImageHeight = 480;
+	ai_cfg.u16AiImageWidth  = NORMALIZATION_X;
+	ai_cfg.u16AiImageHeight = NORMALIZATION_Y;
 	ai_cfg.u8FrameAllocType = 0;
 	ai_cfg.u8CacheNumber	= 8;
     ai_cfg.u8CacheNumberForVout = 2;
-	
-	/*
-			u8PixelFormat:  1:yuv420£¬2:yuv422(not support) 3:yuv420
-			
-			if (llpVideoFrame->nPixelFormat < 3 )
-			llpVideoFrame->pYUV[0]:  y
-			llpVideoFrame->pYUV[1]:  u
-			llpVideoFrame->pYUV[2]:  v
 
-			if (llpVideoFrame->nPixelFormat >= 3 )
-			llpVideoFrame->pYUV[0]:  yuv
-
-			if nPixelFormat is 3, we will transmit the data pointer from hisilicon to libailib directly
-			if nPixelFormat is 1, we will convert the format from nv21 to yuv420
-	*/
 	ai_cfg.u8PixelFormat = 3;
 	IF_SetParam(NSDCFG_AI,&ai_cfg,0,0);
+
+	/*Ssd Load model*/
+
+	if(SAMPLE_SVP_NNIE_SSD_Init(pcModelName) != HI_SUCCESS){
+		return NSDERR_FAIL;
+	}
+	printf("SAMPLE_SVP_NNIE_SSD_Init ok!\n");
+
+	s32Ret = SAMPLE_COMM_IVE_CreateImage(&stImg[0],IVE_IMAGE_TYPE_U8C3_PLANAR,NORMALIZATION_X,NORMALIZATION_Y);
+	if(HI_SUCCESS != s32Ret){
+		printf("Error(%#x),Create img[0] failed!\n");
+
+		return NSDERR_FAIL;
+	}
+	printf("SAMPLE_COMM_IVE_CreateImage ok!\n");
 
 	int status = pthread_create(&m_thread_id, NULL, TheThread, (void *)this);
 	if (status != 0)
@@ -187,6 +214,7 @@ void CAiLib::UnInitLib()
 {
 	m_stop_flag = true;
 	int nCount = 0;
+	printf("UnInitLib...!\n");
 	while(m_bThreadRunning)
 	{
 		if (nCount > 100)
@@ -198,6 +226,9 @@ void CAiLib::UnInitLib()
 		nCount++;
 	}
 	pthread_cancel(m_thread_id);
+
+	IVE_MMZ_FREE(stImg[0].au64PhyAddr[0], stImg[0].au64VirAddr[0]);
+	SAMPLE_SVP_NNIE_SSD_DeInit();
 }
 
 long CAiLib::AddCallBackFunction(int p_ch, ai_analyse_callback p_callbackfunc)

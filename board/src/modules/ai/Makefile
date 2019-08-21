@@ -43,12 +43,13 @@ endif
 #$(shell find . -maxdepth 2 -type d)
 INCPRJ=$(foreach dir,$(INCDIRS),$(join -I,$(dir)))
 
-LIB_PATH           :=-L$(SRC_TOPDIR)/lib/$(arm) -L$(SRC_TOPDIR)/lib/$(arm)/lib_third -L$(SDK_TOPDIR)/lib
-
+LIB_PATH           :=-L$(SRC_TOPDIR)/lib/$(arm) -L$(SRC_TOPDIR)/lib/$(arm)/lib_third 
+#-L$(SDK_TOPDIR)/lib -L/home/hi3516cv500/Hi3516CV500_SDK_V2.0.1.0/package/mpp_smp_linux/lib
 INC_PATH           := ${INCPRJ} \
                       -I${SRC_TOPDIR}/include \
 		      -I${SRC_TOPDIR}/include/if \
-		      -I${SRC_TOPDIR}/include/third
+		      -I${SRC_TOPDIR}/include/third \
+			-I/home/hi3516dv300/mpp/include
 #****************************************************************************
 # Source files
 #****************************************************************************
@@ -66,11 +67,17 @@ TMPDEF		   := ${foreach n,$(DIRS),$(wildcard ${n}/*.i)}
 
 LIBS               :=-lpthread -ldl -lc -lgcc -lm -lrt
 
+REL_LIB := /home/hi3516dv300/mpp/lib
+MPI_LIBS := $(REL_LIB)/libive.a
+MPI_LIBS += $(REL_LIB)/libnnie.a
+MPI_LIBS += $(REL_LIB)/libmpi.a
+MPI_LIBS += $(REL_LIB)/libsecurec.a
+
 #****************************************************************************
 # Output
 #****************************************************************************
 ${TARGET}:${OBJS}
-	${CXX} -fPIC -rdynamic -s -shared -o $@ ${LIB_PATH} ${OBJS} ${LIBS}
+	${CXX} -fPIC -rdynamic -s -shared -o $@ ${LIB_PATH} ${OBJS} ${LIBS} $(MPI_LIBS)
 	${CROSS_COMPILE}strip ${TARGET}
 	cp ${TARGET} /nsd/
 -include $(DEPE) 

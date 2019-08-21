@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="board"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/hi3516dv300/HTSolution_V2.8.5/board/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hi3516dv300/HTSolution_V2.8.5/board/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hi3516dv300/HTSolution_V2.8.5/board/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hi3516dv300/HTSolution_V2.8.5/board/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hi3516dv300/HTSolution_V2.8.5/board/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/hi3516dv300/HTSolution_V2.8.5/board/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hi3516dv300/HTSolution_V2.8.5/board/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hi3516dv300/HTSolution_V2.8.5/board/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hi3516dv300/HTSolution_V2.8.5/board/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hi3516dv300/HTSolution_V2.8.5/board/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="board">
+				<Option output="/home/hi3516dv300/HTSolution_V2.8.5/board/cmake-build-debug/board" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/hi3516dv300/HTSolution_V2.8.5/board/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/hi3516dv300/HTSolution_V2.8.5/board/include"/>
+					<Add directory="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third"/>
+					<Add directory="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/base"/>
+					<Add directory="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/iniparser"/>
+					<Add directory="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl"/>
+					<Add directory="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/src"/>
+					<Add directory="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai_callback/src"/>
+					<Add directory="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/platform/customer/src"/>
+					<Add directory="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/plugin/src"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hi3516dv300/HTSolution_V2.8.5/board/cmake-build-debug/Makefile&quot;  VERBOSE=1 board"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hi3516dv300/HTSolution_V2.8.5/board/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hi3516dv300/HTSolution_V2.8.5/board/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hi3516dv300/HTSolution_V2.8.5/board/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="board/fast">
+				<Option output="/home/hi3516dv300/HTSolution_V2.8.5/board/cmake-build-debug/board" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/hi3516dv300/HTSolution_V2.8.5/board/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/hi3516dv300/HTSolution_V2.8.5/board/include"/>
+					<Add directory="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third"/>
+					<Add directory="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/base"/>
+					<Add directory="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/iniparser"/>
+					<Add directory="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl"/>
+					<Add directory="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/src"/>
+					<Add directory="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai_callback/src"/>
+					<Add directory="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/platform/customer/src"/>
+					<Add directory="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/plugin/src"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hi3516dv300/HTSolution_V2.8.5/board/cmake-build-debug/Makefile&quot;  VERBOSE=1 board/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hi3516dv300/HTSolution_V2.8.5/board/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hi3516dv300/HTSolution_V2.8.5/board/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hi3516dv300/HTSolution_V2.8.5/board/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/hi3516dv300/HTSolution_V2.8.5/board/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hi3516dv300/HTSolution_V2.8.5/board/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hi3516dv300/HTSolution_V2.8.5/board/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hi3516dv300/HTSolution_V2.8.5/board/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hi3516dv300/HTSolution_V2.8.5/board/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/aidefines.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/common.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/m_if.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/nsddefines.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/nsdnetinterface.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/privydef.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/base/hatomic.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/base/hautoptr.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/base/hcharset.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/base/hcoll.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/base/hcomm.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/base/hdatetime.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/base/hdelay.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/base/hevent.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/base/hlog.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/base/hmap.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/base/hmutex.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/base/hobject.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/base/hstring.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/base/hthread.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/base/htimerthread.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/hconvert.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/hdefines.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/iniparser/dictionary.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/iniparser/iniparser.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/aes.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/asn1.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/asn1_mac.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/asn1t.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/bio.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/blowfish.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/bn.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/buffer.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/camellia.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/cast.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/cmac.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/cms.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/comp.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/conf.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/conf_api.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/crypto.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/des.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/des_old.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/dh.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/dsa.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/dso.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/dtls1.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/e_os2.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/ebcdic.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/ec.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/ecdh.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/ecdsa.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/engine.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/err.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/evp.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/hmac.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/idea.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/krb5_asn.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/kssl.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/lhash.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/md4.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/md5.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/mdc2.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/modes.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/obj_mac.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/objects.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/ocsp.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/opensslconf.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/opensslv.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/ossl_typ.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/pem.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/pem2.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/pkcs12.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/pkcs7.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/pqueue.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/rand.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/rc2.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/rc4.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/ripemd.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/rsa.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/safestack.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/seed.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/sha.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/srp.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/srtp.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/ssl.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/ssl2.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/ssl23.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/ssl3.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/stack.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/symhacks.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/tls1.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/ts.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/txt_db.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/ui.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/ui_compat.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/whrlpool.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/x509.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/x509_vfy.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/include/third/openssl/x509v3.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/hisi3516d/src/ailib.d.7749.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/ailib.d.30671.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/ailib.d.30708.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/ailib.d.31297.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/ailib.d.31345.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/ailib.d.31450.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/ailib.d.31484.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/ailib.d.31517.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/ailib.d.31600.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/ailib.d.31605.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/ailib.d.31614.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/ailib.d.31656.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/ailib.d.31661.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/ailib.d.31672.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/ailib.d.31897.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/ailib.d.31906.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/ailib.d.31948.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/ailib.d.31953.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/sample_comm_ive.d.30646.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/sample_comm_ive.d.30683.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/sample_comm_ive.d.31272.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/sample_comm_ive.d.31320.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/sample_comm_ive.d.31425.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/sample_comm_ive.d.31459.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/sample_comm_ive.d.31492.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/sample_comm_nnie.d.30666.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/sample_comm_nnie.d.30703.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/sample_comm_nnie.d.31292.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/sample_comm_nnie.d.31340.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/sample_comm_nnie.d.31445.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/sample_comm_nnie.d.31479.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/sample_comm_nnie.d.31512.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/sample_comm_svp.d.30661.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/sample_comm_svp.d.30698.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/sample_comm_svp.d.31287.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/sample_comm_svp.d.31335.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/sample_comm_svp.d.31440.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/sample_comm_svp.d.31474.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/sample_comm_svp.d.31507.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/sample_nnie.d.30656.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/sample_nnie.d.30693.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/sample_nnie.d.31282.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/sample_nnie.d.31330.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/sample_nnie.d.31435.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/sample_nnie.d.31469.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/sample_nnie.d.31502.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/sample_svp_nnie_software.d.30651.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/sample_svp_nnie_software.d.30688.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/sample_svp_nnie_software.d.31277.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/sample_svp_nnie_software.d.31325.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/sample_svp_nnie_software.d.31430.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/sample_svp_nnie_software.d.31464.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/obj/src/sample_svp_nnie_software.d.31497.i">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/src/ailib.cpp">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/src/ailib.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/src/sample_comm.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/src/sample_comm_ive.c">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/src/sample_comm_ive.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/src/sample_comm_nnie.c">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/src/sample_comm_nnie.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/src/sample_comm_svp.c">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/src/sample_comm_svp.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/src/sample_nnie.c">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/src/sample_nnie.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/src/sample_nnie_main.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/src/sample_svp_nnie_software.c">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai/src/sample_svp_nnie_software.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai_callback/src/ailib.cpp">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/ai_callback/src/ailib.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/platform/customer/src/customer.cpp">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/platform/customer/src/customer.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/plugin/src/plugin.cpp">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/src/modules/plugin/src/plugin.h">
+			<Option target="board"/>
+		</Unit>
+		<Unit filename="/home/hi3516dv300/HTSolution_V2.8.5/board/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
